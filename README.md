@@ -18,6 +18,10 @@ The seed contains 100 accounts, 5,002 transactions, 1,005 events, one visible in
 
 **Not yet delivered:** vector/hybrid retrieval, broader case scenarios, real-model quality measurements, hosted PostgreSQL, and the final Vercel/custom-domain deployment. No production-readiness claim is made.
 
+## External research data
+
+The real ULB/Worldline credit-card dataset is available locally through a reproducible downloader, with schema validation and a checksum. It is isolated from the synthetic application and reserved for a possible transaction-detection benchmark: it lacks the account/login/device relationships needed for account-takeover investigations. See [dataset provenance, licensing, suitability, and download instructions](docs/public-datasets.md). Raw records and labels are excluded from Git and deployment.
+
 ## Local setup
 
 Prerequisites: Node.js 24, npm, [uv](https://docs.astral.sh/uv/getting-started/installation/), and Python 3.12 (`uv python install 3.12`). On Windows, the local PostgreSQL helper can reuse an installed Edge C++ runtime without changing system PATH or installing a service.

@@ -1,0 +1,72 @@
+{
+  "dataset": "ULB / Worldline Credit Card Fraud Detection",
+  "source": "https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud",
+  "source_version": 3,
+  "download_url": "https://storage.googleapis.com/download.tensorflow.org/data/creditcard.csv",
+  "mirror_documentation": "https://www.tensorflow.org/tutorials/structured_data/imbalanced_data",
+  "license_as_reported_by_source": "Database: Open Database, Contents: Database Contents",
+  "license_urls": [
+    "https://opendatacommons.org/licenses/odbl/1-0/",
+    "https://opendatacommons.org/licenses/dbcl/1-0/"
+  ],
+  "acquired_at_utc": "2026-09-18T05:55:59.449862+00:00",
+  "mirror_matches_source_version": "Not byte-verified against Kaggle archive; schema and counts verified",
+  "observed": {
+    "rows": 284807,
+    "columns": [
+      "Time",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7",
+      "V8",
+      "V9",
+      "V10",
+      "V11",
+      "V12",
+      "V13",
+      "V14",
+      "V15",
+      "V16",
+      "V17",
+      "V18",
+      "V19",
+      "V20",
+      "V21",
+      "V22",
+      "V23",
+      "V24",
+      "V25",
+      "V26",
+      "V27",
+      "V28",
+      "Amount",
+      "Class"
+    ],
+    "column_count": 31,
+    "label_counts": {
+      "0": 284315,
+      "1": 492
+    },
+    "missing_values": 0,
+    "numeric_ranges": {
+      "Time": [
+        0.0,
+        172792.0
+      ],
+      "Amount": [
+        0.0,
+        25691.16
+      ]
+    },
+    "sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89",
+    "bytes": 150828752
+  },
+  "use": "Offline transaction-fraud detection benchmark only",
+  "ato_suitability": "Insufficient: no account, login, device or recipient identifiers",
+  "runtime_ingested": false,
+  "label_policy": "Class stays in ignored raw data; never supply as RAG/model evidence"
+}
