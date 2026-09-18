@@ -1,0 +1,15 @@
+{
+  "name": "rag-based-financial-fraud-investigation-assistant",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "db:local": "node scripts/local-postgres.mjs",
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "embedded-postgres": "18.4.0-beta.17"
+  }
+}

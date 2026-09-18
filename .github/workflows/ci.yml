@@ -1,0 +1,51 @@
+name: Verify investigation workflow
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_PASSWORD: ci-local-only
+          POSTGRES_DB: fraud_investigation
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://ffia_app:ci-runtime-only@127.0.0.1:5432/fraud_investigation
+      ADMIN_DATABASE_URL: postgresql://postgres:ci-local-only@127.0.0.1:5432/fraud_investigation
+      AUTH_SECRET: ephemeral-ci-signing-secret-not-for-deployment
+      ENABLE_PUBLIC_DEMO: "true"
+      ENABLE_LIVE_GENERATION: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.16"
+      - run: uv sync --frozen
+        working-directory: backend
+      - run: uv run python manage.py migrate && uv run python manage.py seed
+        working-directory: backend
+      - run: uv run ruff check app tests manage.py seed.py ingest.py evaluate.py && uv run pytest -q
+        working-directory: backend
+      - run: npm ci --prefix frontend && npm run build --prefix frontend
+      - run: npm ci --ignore-scripts && npx playwright install --with-deps chromium
+      - run: uv run python manage.py token && uv run python evaluate.py --split dev
+        working-directory: backend
+      - name: Start local services
+        run: |
+          (cd backend && uv run uvicorn app.main:app --host 127.0.0.1 --port 8000 --no-access-log) &
+          npm --prefix frontend run dev &
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:5173/api/health; then exit 0; fi
+            sleep 1
+          done
+          exit 1
+      - run: npm run test:e2e

@@ -1,0 +1,10 @@
+[
+ {"id":"dev-01","query":"replacement phone","expected":["PROC-002:v1:1","HIST-002:v1:1"],"answerable":true},
+ {"id":"dev-02","query":"password reset","expected":["PROC-004:v1:1"],"answerable":true},
+ {"id":"dev-03","query":"travel location","expected":["PROC-005:v1:1","HIST-003:v1:1"],"answerable":true},
+ {"id":"dev-04","query":"transaction currency window","expected":["PROC-009:v1:1"],"answerable":true},
+ {"id":"dev-05","query":"recipient linkage","expected":["PROC-008:v1:1"],"answerable":true},
+ {"id":"dev-06","query":"payment invoice","expected":["PROC-006:v1:1","HIST-004:v1:1"],"answerable":true},
+ {"id":"dev-07","query":"orbital zeppelins","expected":[],"answerable":false},
+ {"id":"dev-08","query":"H-606","expected":[],"answerable":false}
+]

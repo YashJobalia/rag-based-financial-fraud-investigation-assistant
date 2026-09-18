@@ -24,3 +24,8 @@ playwright-report/
 test-results/
 .DS_Store
 Thumbs.db
+.tools/
+.local/
+backend/.venv/
+artifacts/
+*.tsbuildinfo

@@ -1,0 +1,131 @@
+{
+  "created_at": "2026-09-18T05:38:54.332073+00:00",
+  "split": "dev",
+  "mode": "keyword",
+  "k": 5,
+  "question_count": 8,
+  "dataset_sha256": "0a12cd4e5b59f704e9ef03bffb8ccb5177515366ebcc891d50a1b4b0f11a9b68",
+  "corpus_hash": "7bcdcfc1df6a3ac1159796588f6cb3bbbee4b87f09634b02b0efdeee56c10dd6",
+  "metrics": {
+    "recall_at_k": 1.0,
+    "mrr": 1.0,
+    "ndcg_at_k": 0.986620131524698,
+    "empty_retrieval_on_unanswerable": 1,
+    "latency_mean_ms": 21.50375,
+    "latency_p95_ms": 32.2,
+    "model_tokens": 0,
+    "model_cost_usd": 0
+  },
+  "not_measured": [
+    "live citation semantic correctness",
+    "live citation completeness",
+    "live groundedness",
+    "live appropriate abstention",
+    "vector retrieval",
+    "hybrid retrieval"
+  ],
+  "limitations": [
+    "Small synthetic corpus; no evidence of real-world accuracy.",
+    "Held-out questions test document retrieval, not unseen case-family generalization.",
+    "Empty retrieval is not equivalent to appropriate synthesis abstention.",
+    "Latency excludes HTTP, rendering, database connection setup, and LLM synthesis."
+  ],
+  "questions": [
+    {
+      "id": "dev-01",
+      "retrieved": [
+        "PROC-002:v1:1",
+        "HIST-002:v1:1"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "ndcg_at_k": 1.0,
+      "duration_ms": 15.01,
+      "empty_on_unanswerable": null,
+      "corpus_hash": "7bcdcfc1df6a3ac1159796588f6cb3bbbee4b87f09634b02b0efdeee56c10dd6"
+    },
+    {
+      "id": "dev-02",
+      "retrieved": [
+        "PROC-004:v1:1"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "ndcg_at_k": 1.0,
+      "duration_ms": 22.05,
+      "empty_on_unanswerable": null,
+      "corpus_hash": "7bcdcfc1df6a3ac1159796588f6cb3bbbee4b87f09634b02b0efdeee56c10dd6"
+    },
+    {
+      "id": "dev-03",
+      "retrieved": [
+        "PROC-005:v1:1",
+        "HIST-003:v1:1"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "ndcg_at_k": 1.0,
+      "duration_ms": 17.75,
+      "empty_on_unanswerable": null,
+      "corpus_hash": "7bcdcfc1df6a3ac1159796588f6cb3bbbee4b87f09634b02b0efdeee56c10dd6"
+    },
+    {
+      "id": "dev-04",
+      "retrieved": [
+        "PROC-009:v1:1"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "ndcg_at_k": 1.0,
+      "duration_ms": 24.76,
+      "empty_on_unanswerable": null,
+      "corpus_hash": "7bcdcfc1df6a3ac1159796588f6cb3bbbee4b87f09634b02b0efdeee56c10dd6"
+    },
+    {
+      "id": "dev-05",
+      "retrieved": [
+        "PROC-008:v1:1"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "ndcg_at_k": 1.0,
+      "duration_ms": 16.64,
+      "empty_on_unanswerable": null,
+      "corpus_hash": "7bcdcfc1df6a3ac1159796588f6cb3bbbee4b87f09634b02b0efdeee56c10dd6"
+    },
+    {
+      "id": "dev-06",
+      "retrieved": [
+        "PROC-006:v1:1",
+        "HIST-002:v1:1",
+        "HIST-004:v1:1"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0,
+      "ndcg_at_k": 0.9197207891481876,
+      "duration_ms": 32.2,
+      "empty_on_unanswerable": null,
+      "corpus_hash": "7bcdcfc1df6a3ac1159796588f6cb3bbbee4b87f09634b02b0efdeee56c10dd6"
+    },
+    {
+      "id": "dev-07",
+      "retrieved": [],
+      "recall_at_k": null,
+      "reciprocal_rank": 0,
+      "ndcg_at_k": null,
+      "duration_ms": 19.91,
+      "empty_on_unanswerable": true,
+      "corpus_hash": "7bcdcfc1df6a3ac1159796588f6cb3bbbee4b87f09634b02b0efdeee56c10dd6"
+    },
+    {
+      "id": "dev-08",
+      "retrieved": [],
+      "recall_at_k": null,
+      "reciprocal_rank": 0,
+      "ndcg_at_k": null,
+      "duration_ms": 23.71,
+      "empty_on_unanswerable": true,
+      "corpus_hash": "7bcdcfc1df6a3ac1159796588f6cb3bbbee4b87f09634b02b0efdeee56c10dd6"
+    }
+  ]
+}
