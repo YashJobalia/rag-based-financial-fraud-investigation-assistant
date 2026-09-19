@@ -10,7 +10,7 @@ An evidence-grounded investigation workspace for suspected account takeover. Rea
 - Explicit SQL alert rules, exact per-currency totals/counts, and a 30-day comparison window.
 - PostgreSQL full-text retrieval over permitted, versioned fictional passages.
 - A deterministic **reference brief**, explicitly labeled as non-LLM output, with observations, hypotheses, legitimate explanations, unknowns, next checks, and clickable citations.
-- OpenAI structured-output synthesis behind analyst access and a disabled-by-default flag. **Live generation has not been exercised with a real key.**
+- OpenAI structured-output synthesis behind analyst access and a disabled-by-default flag. **One live API smoke test passed; quality issues and limitations are recorded in docs/validation.md.**
 - Signed analyst sessions and persisted reviews. Public users cannot save reviews or run model calls.
 - Tenant RLS, restricted database privileges, case assignments, immutable document versions, evidence cutoffs, cross-process request budgets, and generation accounting.
 

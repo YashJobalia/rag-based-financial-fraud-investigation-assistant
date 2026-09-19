@@ -18,7 +18,7 @@ These results are from a tiny synthetic corpus and intentionally simple developm
 
 ## Unverified or limited
 
-- No real OpenAI call has been made. Live citation entailment, citation completeness, groundedness, appropriate abstention, and actual token cost remain unmeasured.
+- One real OpenAI smoke call has now completed (see below). Systematic live citation entailment, completeness, groundedness, and abstention evaluation remain outstanding. Dollar cost is not configured.
 - Reference briefs are deterministic and labeled. They must not be used to claim LLM quality.
 - The prompt-injection test checks that the deterministic path does not execute actions. It is not a red-team result for a live model.
 - PostgreSQL enforces tenant isolation; API case assignments and document-group predicates provide the finer scope. Production identity-provider integration and revocation remain future work.
@@ -26,3 +26,17 @@ These results are from a tiny synthetic corpus and intentionally simple developm
 - The test run emitted two upstream Starlette/AnyIO deprecation warnings. They did not fail the tests.
 - Vercel build/runtime behavior and the requested custom domain are not yet verified. The separate hosted database is pending.
 - Windows PostgreSQL initially lacked runtime DLLs. A system installer was rejected by automatic approval review; the working setup reuses an existing Microsoft runtime without installing a service.
+
+
+## Live API smoke test ? 2026-09-19
+
+One authenticated FastAPI TestClient request used the real PostgreSQL evidence/retrieval path and OpenAI `gpt-4.1-mini`. Live generation was enabled only in that test process; the saved environment flag remains false. This was not a browser or hosted-deployment test.
+
+- Response: HTTP 200; all six required sections and the cautious conclusion were returned and persisted.
+- Measured request duration: 19,761.97 ms. Usage: 4,655 input tokens and 1,010 output tokens. Cost remains unknown because model rates are not configured.
+- All 17 distinct cited evidence IDs resolved through the authenticated API.
+- Public live generation returned 403; the analyst's unassigned case returned 404.
+- The brief included phone replacement as a legitimate hypothesis, missing authorization evidence, and further investigation rather than a fraud verdict.
+- Full response and cited evidence are stored only in ignored `.local/live-smoke.json`. No key or session token is included in that report.
+
+Manual inspection found limitations: the brief omitted timezone labels when rendering offset timestamps; it paraphrased the per-transfer alert threshold as an aggregate threshold and omitted the first 30-minute rule window. The database session uses local time, which also affects SQL day-boundary calculations; a follow-up must pin an explicit timezone and verify boundary cases before treating daily windows as portable. The sample transfer amounts and cited baseline totals matched their supplied calculations, but that does not validate window semantics. These are unresolved findings, not a perfect groundedness score. Valid IDs do not establish semantic correctness. No held-out evaluation or prompt-injection evaluation was performed in this smoke test.
